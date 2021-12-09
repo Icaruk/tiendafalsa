@@ -1,5 +1,5 @@
 {
-  "name": "expo-next-monorepo-example",
+  "name": "tiendafalsa",
   "private": true,
   "license": "MIT",
   "devDependencies": {
@@ -11,8 +11,8 @@
     "packages/next"
   ],
   "scripts": {
-    "dev:expo": "yarn workspace @expo-next-monorepo-example/expo dev",
-    "dev:next": "yarn workspace @expo-next-monorepo-example/next dev",
+    "dev:expo": "cd packages/expo && yarn start:expo",
+    "dev:next": "cd packages/next && yarn start:expo",
     "build": "cd packages/next && yarn build",
     "deploy": "vercel --prod --no-clipboard",
     "postinstall": "patch-package"

@@ -5,10 +5,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 const withTM = require('next-transpile-modules')([
   'app',
-  '@gorhom/bottom-sheet',
-  '@gorhom/portal',
-  'dripsy',
-  '@dripsy/core'
 ])
 
 const nextConfig = {}
