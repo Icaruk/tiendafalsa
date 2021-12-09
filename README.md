@@ -2,6 +2,7 @@
 
 💎 = luxury
 
+
 - **Usuario**
   - Registro (POST `/users`)
   - Formulario de edición (PUT `/users`)
