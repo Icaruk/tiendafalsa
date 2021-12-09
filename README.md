@@ -20,6 +20,7 @@
   - 💎 Botón fake para "Comprar" (sin acción)
 - 💎 Añadir declaraciones de TypesScript faltantes.
 - 💎 Optimizaciones.
+- Readme
 
 
 
