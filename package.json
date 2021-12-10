@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "dev:expo": "cd packages/expo && yarn start:expo",
-    "dev:next": "cd packages/next && yarn start:expo",
+    "dev:next": "cd packages/next && yarn dev",
     "build": "cd packages/next && yarn build",
     "deploy": "vercel --prod --no-clipboard",
     "postinstall": "patch-package"

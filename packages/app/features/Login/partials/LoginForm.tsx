@@ -2,21 +2,26 @@
 import axios from "axios";
 import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { useRouting } from 'expo-next-react-navigation';
 
 
 
 export default function LoginForm({
 	defaultValues = {
-		username: "johnd",
-		password: "m38rmF$"
+		username: "",
+		password: ""
 	},
 	onFinish,
 }) {
-
+	
+	const routing = useRouting();
+	
+	
+	
 	if (!onFinish) throw TypeError("onFinish is required");
-
-
-
+	
+	
+	const [cargando, setCargando] = useState(false);
 	const [form, setForm] = useState(defaultValues);
 
 
@@ -24,6 +29,8 @@ export default function LoginForm({
 	const pulsaAcceder = async () => {
 
 		try {
+			
+			setCargando(true);
 			const res = await axios.post(
 				"https://fakestoreapi.com/auth/login",
 				{
@@ -37,11 +44,9 @@ export default function LoginForm({
 		} catch (err) {
 			onFinish(null);
 		};
-
-
-
-
-
+		
+		setCargando(false);
+		
 	};
 
 
@@ -61,6 +66,7 @@ export default function LoginForm({
 				style={styles.input}
 				onChangeText={val => setForm({ ...form, password: val })}
 				value={form.password}
+				secureTextEntry
 			/>
 
 			<TouchableOpacity
@@ -73,8 +79,35 @@ export default function LoginForm({
 					marginTop: 16,
 				}}
 				onPress={pulsaAcceder}
+				disabled={cargando}
 			>
-				<Text>Acceder</Text>
+				<Text>
+					{ cargando ? "Accediendo..." : "Acceder ➡️"}
+				</Text>
+			</TouchableOpacity>
+			
+			<TouchableOpacity
+				style={{
+					alignItems: "center",
+					backgroundColor: "#DDDDDD",
+					padding: 10,
+					height: 40,
+					width: 200,
+					marginTop: 16,
+				}}
+				onPress={ () => {
+					routing.navigate({
+						routeName: "Register",
+						web: {
+							path: "/register"
+						}
+						
+					});
+				}}
+			>
+				<Text>
+					📋 Registrarse
+				</Text>
 			</TouchableOpacity>
 
 		</View>

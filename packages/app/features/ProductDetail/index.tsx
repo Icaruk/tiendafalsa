@@ -4,6 +4,7 @@ import { View, Text, Image, StyleSheet, FlatList } from "react-native";
 import Product from "app/features/Products/partials/Product";
 import {ProductType} from "app/features/Products/partials/Product";
 import { useRouting } from 'expo-next-react-navigation';
+import addToCart from "../Cart/functions/addToCart";
 
 
 
@@ -28,6 +29,7 @@ export default function ProductDetail() {
 	
 	
 	// const [productDetail, setProductDetail] = useState<ProductType>(product);
+	const [loading, setLoading] = useState<boolean>(true);
 	const [productDetail, setProductDetail] = useState(null);
 	
 	
@@ -38,17 +40,27 @@ export default function ProductDetail() {
 			try {
 				
 				const productId = routing.getParam("id");
+				console.log( "productId", `(${typeof productId}): `, productId);
 				
 				if (productId) {
+					setLoading(true);
 					const res = await axios.get(`https://fakestoreapi.com/products/${productId}`);
 					setProductDetail(res.data);
 				};
 			} catch (err) {
 				console.log(err);
 			};
+			
+			setLoading(false);
 		})();
 		
 	}, []);
+	
+	
+	
+	if (loading) return <Text style={{textAlign: "center"}}>
+		Loading...
+	</Text>;
 	
 	
 	
@@ -57,18 +69,10 @@ export default function ProductDetail() {
 			productData={productDetail}
 			isDetail={true}
 			onAddToCartClick={ productId => {
-				console.log( `Añadiría al carro el ítem ${productId}` );
+				addToCart(1, productId);
 			}}
 		/>
 	);
-}
+};
 
 
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center'
-	}
-})

@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from "react-native";
 import { enableScreens } from 'react-native-screens';
-import Link from 'next/link'
 
 
 
@@ -12,19 +11,7 @@ enableScreens(true)
 export default function App() {
 	return (
 		<View style={styles.container}>
-			<View style={styles.nav}>
-				
-				<Link href="/">
-					<Text>Ir a home</Text>
-				</Link>
-				
-				<Link
-					href="/login"
-				>
-					<Text>Ir a login</Text>
-				</Link>
-				
-			</View>
+			<Text>Tienda falsa home</Text>
 		</View>
 	)
 }

@@ -10339,6 +10339,11 @@ uuid@^7.0.3:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.3.tgz#c5c9f2c8cf25dc0a372c4df1441c41f5bd0c680b"
   integrity sha512-DPSke0pXhTZgoF/d+WSt2QaKMCFSfx7QegxEWT+JOuHF5aWrKEn0G+ztjuJg/gG8/ItK+rbPCD/yNv8yyih6Cg==
 
+validame@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/validame/-/validame-4.0.3.tgz#c807bf3250e528afd3b615ca35bc4a34a44e40f6"
+  integrity sha512-mvMFodpnQr2TjuqywT9rrn5X6lV6QEkC/izPVd90VZNBkBaD9t0DUpCdhFcs0oFVmGfrDXjpwuU9rDFQSXYu0w==
+
 validate-npm-package-name@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/validate-npm-package-name/-/validate-npm-package-name-3.0.0.tgz#5fa912d81eb7d0c74afc140de7317f0ca7df437e"
